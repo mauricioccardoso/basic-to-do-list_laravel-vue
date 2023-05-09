@@ -29,6 +29,8 @@
 </template>
 
 <script setup lang="ts">
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 import { ref } from 'vue'
 import CardModal from './CardModal.vue'
 import httpClient from '@/http'
@@ -101,22 +103,85 @@ const confirmAction = async (editedName: string) => {
   if (actionSelected === 'check' || actionSelected === 'uncheck') {
     await httpClient
       .put(`/task/${props.id}`, { name: props.name, status: !props.status })
-      .then(() => {})
+      .then(() => {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: `${actionSelected === 'check' ? 'Tarefa Concluída' : 'Tarefa Aberta'}`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+      .catch(() => {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'error',
+          title: `${
+            actionSelected === 'check' ? 'Error ao concluir tarefa' : 'Error ao abrir tarefa'
+          }`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
   }
 
   if (actionSelected === 'edit') {
     await httpClient
       .put(`/task/${props.id}`, { name: editedName, status: props.status })
-      .then(() => {})
+      .then(() => {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'Tarefa atualizada com sucesso',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+      .catch(() => {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'error',
+          title: 'Error ao atualizar tarefa',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
   }
 
   if (actionSelected === 'delete') {
-    await httpClient.delete(`/task/${props.id}`).then(() => {})
+    await httpClient
+      .delete(`/task/${props.id}`)
+      .then(() => {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'Tarefa excluída com sucesso',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+      .catch(() => {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'error',
+          title: 'Error ao excluir tarefa',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
   }
 
-  actionSelected = ''
-  taskName = false
-  emit('reloadTasks')
+  setTimeout(() => {
+    actionSelected = ''
+    taskName = false
+    emit('reloadTasks')
+  }, 1400)
 }
 </script>
 

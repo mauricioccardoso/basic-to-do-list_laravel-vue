@@ -25,6 +25,8 @@
 </template>
 
 <script setup lang="ts">
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 import httpClient from '@/http'
 import { ref } from 'vue'
 
@@ -39,8 +41,26 @@ const saveTask = () => {
   httpClient
     .post('/task', { name: name.value })
     .then(() => {
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: 'Tarefa Salva',
+        showConfirmButton: false,
+        timer: 1500
+      })
       name.value = ''
       emit('reloadTasks')
+    })
+    .catch(() => {
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'error',
+        title: 'O nome da tarefa deve ter no minímo 3 caracteres',
+        showConfirmButton: false,
+        timer: 2000
+      })
     })
     .finally(() => {
       loading.value = false
