@@ -23,7 +23,7 @@ class TaskRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:3'],
-            'status' => ['required', 'boolean'],
+            'status' => ['boolean'],
         ];
     }
 
@@ -33,7 +33,6 @@ class TaskRequest extends FormRequest
             'name.required' => 'O campo nome é obrigatório',
             'name.string' => 'O campo nome deve ser um conjunto de caracteres',
             'name.min' => 'O campo :attribute deve ter no mínimo :min caracteres',
-            'status.required' => 'O campo status é obrigatório',
             'status.boolean' => 'O campo status deve ser verdadeiro ou falso'
         ];
     }

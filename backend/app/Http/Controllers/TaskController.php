@@ -14,7 +14,7 @@ class TaskController extends Controller
     public function index()
     {
         try{
-            $tasks = Task::all();
+            $tasks = Task::orderBy('name')->get();
             return response()->json($tasks);
 
         } catch (Exception $e) {

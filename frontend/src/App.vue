@@ -1,7 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TaskView from '@/views/TaskView.vue'
+import NavbarHeader from '@/components/NavbarHeader.vue'
+</script>
 
 <template>
-  <h1>Ola mundo</h1>
+  <NavbarHeader />
+  <div class="container">
+    <TaskView />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  padding: 1rem 1.25rem;
+  max-width: 1024px;
+  margin: auto;
+}
+</style>
