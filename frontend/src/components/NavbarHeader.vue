@@ -3,7 +3,7 @@
     <nav class="navbar">
       <img
         class="logo"
-        src="../../public/images/inbraep-full_logo_2.png"
+        src="/images/inbraep-full_logo_2.png"
         alt="Logotipo da inbraep"
       />
       <h1>Lista de Tarefa</h1>
