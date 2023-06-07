@@ -131,10 +131,10 @@ php -S localhost:8081 -t .\public\
 
 # Configuração com Docker e Docker compose
 
-1. Acessa a pasta raiz do projeto a partir do terminal ou com seu editor de texto.
+1. Acessa a pasta raiz do projeto a partir do terminal ou com o editor de texto.
 
 2. Na pasta "Backend", copiar o arquivo ".env.exemple" e renomear para ".env".
-   Configurar as variáveis de ambiente seguindo as configurações feitas no arquivo docker-compose.yaml na opção "environment"
+   Configurar as variáveis de ambiente do banco de dados seguindo as configurações feitas no arquivo docker-compose.yaml na opção "environment"
    Definindo uma senha nos dois arquivos.
    Ex:
 
@@ -149,7 +149,7 @@ DB_USERNAME=root
 DB_PASSWORD=mypassword       #database password specified in docker-compose.yaml
 ```
 
-3. Acessa a pasta raiz do projeto a partir do terminal e usar o comando para subir os containers
+3. Voltar para a raiz do projeto e usar o comando para subir os containers
 
 ```bash
 docker compose up -d
