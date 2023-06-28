@@ -33,7 +33,7 @@ services:
     image: mysql:8.0
     restart: unless-stopped
     environment:
-      - MYSQL_DATABASE=inbraep-db
+      - MYSQL_DATABASE=mydb
       #Set a password
       - MYSQL_ROOT_PASSWORD=mypassword
     volumes:

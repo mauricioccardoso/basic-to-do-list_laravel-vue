@@ -2,7 +2,7 @@
   <img src="https://inbraep.com.br/wp-content/uploads/2017/10/cropped-favicon-192x192.png" alt="Logo Inbraep" width='100px'>
 </p>
 
-# INBRAEP - To-do List
+# INBRAEP - To-do List - Teste
 
 ## Desafio Nivel 3
 
@@ -38,7 +38,7 @@
 1. Fazer a cópia do projeto para sua máquina
 
 ```bash
-git clone https://github.com/mauricioccardoso/inbraep-todoList.git
+git clone https://github.com/mauricioccardoso/to-do-list-Teste-laravel-vue.git
 ```
 
 1.1. Caso tenha o Docker e Docker compose configurado na sua máquina, siga para [Docker e Docker Compose](#configuração-com-docker-e-docker-compose).
@@ -142,7 +142,7 @@ php -S localhost:8081 -t .\public\
 DB_CONNECTION=mysql
 DB_PORT=3306
 DB_HOST=db-mysql            #database service name specified in docker-compose.yaml
-DB_DATABASE=inbraep-db      #database name specified in docker-compose.yaml
+DB_DATABASE=mydb            #database name specified in docker-compose.yaml
 DB_USERNAME=root
 
 #Set a password
